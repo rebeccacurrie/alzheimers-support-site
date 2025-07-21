@@ -1,5 +1,8 @@
 import Link from "next/link"
 import { StagesSection } from "@/components/stages-section"
+import dynamic from "next/dynamic"
+
+const ChatWidget = dynamic(() => import("@/components/ChatWidget"), { ssr: false })
 
 export default function Home() {
   return (
@@ -31,6 +34,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ChatWidget below the hero section */}
+      <section className="w-full flex justify-center bg-gray-50 dark:bg-gray-950 py-8">
+        <ChatWidget />
       </section>
 
       <StagesSection />
